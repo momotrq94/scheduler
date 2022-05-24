@@ -1,7 +1,35 @@
-import { React, useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 
 export default function useApplicationData() {
+  const countSpots = (state) => {
+    const currentDay = state.days.find((day) => day.name === state.day);
+    const appointmentIds = currentDay.appointments;
+
+    const spots = appointmentIds.filter(
+      (id) => !state.appointments[id].interview
+    );
+    return spots.length;
+  };
+
+  const updateSpots = function (state, appointments) {
+    const updatedState = { ...state, appointments };
+    const updatedDays = [...state.days];
+    const updatedDay = { ...state.days.find((day) => day.name === state.day) };
+
+    const spots = countSpots(updatedState);
+    updatedDay.spots = spots;
+
+    const updatedDayIndex = state.days.findIndex(
+      (day) => day.name === state.day
+    );
+    updatedDays[updatedDayIndex] = updatedDay;
+
+    updatedState.days = updatedDays;
+
+    return updatedState.days;
+  };
+
   const [state, setState] = useState({
     day: "Monday",
     days: [],
@@ -22,8 +50,11 @@ export default function useApplicationData() {
         [id]: appointment,
       };
 
+      const newDays = updateSpots(state, appointments);
+
       setState({
         ...state,
+        days: newDays,
         appointments,
       });
     });
@@ -40,8 +71,11 @@ export default function useApplicationData() {
         [id]: appointment,
       };
 
+      const newDays = updateSpots(state, appointments);
+
       setState({
         ...state,
+        days: newDays,
         appointments,
       });
     });
