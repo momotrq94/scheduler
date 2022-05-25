@@ -13,28 +13,28 @@ Install dependencies with `npm install`.
 
 Dependencies:
 
--axios
--classnames
--normalize.css
--react
--react-dom
--react-scripts
+- axios
+- classnames
+- normalize.css
+- react
+- react-dom
+- react-scripts
 
 Dev-Dependencies:
 
-@babel/core
-@storybook/addon-actions
-@storybook/addon-backgrounds
-@storybook/addon-links
-@storybook/addons
-@storybook/react
-@testing-library/jest-dom
-@testing-library/react
-@testing-library/react-hooks
-babel-loader
-prop-types
-react-test-renderer
-sass
+- @babel/core
+- @storybook/addon-actions
+- @storybook/addon-backgrounds
+- @storybook/addon-links
+- @storybook/addons
+- @storybook/react
+- @testing-library/jest-dom
+- @testing-library/react
+- @testing-library/react-hooks
+- babel-loader
+- prop-types
+- react-test-renderer
+- sass
 
 ## Running Webpack Development Server
 
