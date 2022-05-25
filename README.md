@@ -4,8 +4,8 @@ A web application built using React that allows users to book appointments, edit
 
 ## Final Product
 
-![screenshot of creating appoinment]()
-![screenshot of created appointment]()
+![screenshot of creating appoinment](https://github.com/momotrq94/scheduler/blob/master/docs/create-appointment.png)
+![screenshot of created appointment](https://github.com/momotrq94/scheduler/blob/master/docs/created-appointment.png)
 
 ## Setup
 
